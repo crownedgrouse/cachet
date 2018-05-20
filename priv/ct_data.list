@@ -1,0 +1,103 @@
+[
+ %% Cache : RAM limited to 10 records
+
+ % write in RAM 1->20 by increment of 1, delete 1->10 by increment of 1
+ {set,    cache, id,          write,  write_ram, {10, 20}}
+,{set,    cache, timestamp,   write,  write_ram, {10, 20}}
+,{set,    cache, term,        write,  write_ram, {10, 20}}
+,{set,    cache, id,          delete, delete_ram, {0, 10}}
+,{set,    cache, timestamp,   delete, delete_ram, {0, 10}}
+,{set,    cache, term,        delete, delete_ram, {0, 10}}
+
+ % write in DISC 1->20 by increment of 1, delete 5->15 by increment of 1
+,{set,    cache, id,          write,  write_disc, {10, 20}}
+,{set,    cache, timestamp,   write,  write_disc, {10, 20}}
+,{set,    cache, term,        write,  write_disc, {10, 20}}
+,{set,    cache, id,          delete, delete_disc, {5, 10}}
+,{set,    cache, timestamp,   delete, delete_disc, {5, 10}}
+,{set,    cache, term,        delete, delete_disc, {5, 10}}
+
+ % write in RAM 2 x 1->10 (same key, different value), delete 1 -> 10
+,{bag,    cache, id,          write,  write_ram, {10, 20}}
+,{bag,    cache, timestamp,   write,  write_ram, {10, 20}}
+,{bag,    cache, term,        write,  write_ram, {10, 20}}
+,{bag,    cache, id,          delete, delete_ram, {0, 0}}
+,{bag,    cache, timestamp,   delete, delete_ram, {0, 0}}
+,{bag,    cache, term,        delete, delete_ram, {0, 0}}
+
+ % write in DISC 2 x 1->10 (same key, different value), delete 5 -> 10
+,{bag,    cache, id,          write,  write_disc, {10, 20}}
+,{bag,    cache, timestamp,   write,  write_disc, {10, 20}}
+,{bag,    cache, term,        write,  write_disc, {10, 20}}
+,{bag,    cache, id,          delete, delete_disc, {5, 15}}
+,{bag,    cache, timestamp,   delete, delete_disc, {5, 15}}
+,{bag,    cache, term,        delete, delete_disc, {5, 15}}
+
+ % write  in RAM shuffled 1->20 by increment of 1, delete 1->10 shuffled by increment of 1
+,{ord_set,cache, id,          write,  write_ram, {10, 20}}
+,{ord_set,cache, timestamp,   write,  write_ram, {10, 20}}
+,{ord_set,cache, term,        write,  write_ram, {10, 20}}
+,{ord_set,cache, id,          delete, delete_ram, {0, 10}}
+,{ord_set,cache, timestamp,   delete, delete_ram, {0, 10}}
+,{ord_set,cache, term,        delete, delete_ram, {0, 10}}
+
+ % write in DISC shuffled 1->20 by increment of 1, delete 5->15 shuffled by increment of 1
+,{ord_set,cache, id,          write,  write_disc, {10, 20}}
+,{ord_set,cache, timestamp,   write,  write_disc, {10, 20}}
+,{ord_set,cache, term,        write,  write_disc, {10, 20}}
+,{ord_set,cache, id,          delete, delete_disc, {5, 10}}
+,{ord_set,cache, timestamp,   delete, delete_disc, {5, 10}}
+,{ord_set,cache, term,        delete, delete_disc, {5, 10}}
+ 
+%% Split : RAM limited to 10 records
+ % write in RAM 1->20 by increment of 1, delete 1->10 by increment of 1
+,{set,    split, id,          write,  write_ram, {0,0}}
+,{set,    split, timestamp,   write,  write_ram, {0,0}}
+,{set,    split, term,        write,  write_ram, {0,0}}
+,{set,    split, id,          delete, delete_ram, {0,0}}
+,{set,    split, timestamp,   delete, delete_ram, {0,0}}
+,{set,    split, term,        delete, delete_ram, {0,0}}
+
+ % write in DISC 1->20 by increment of 1, delete 5->15 by increment of 1
+,{set,    split, id,          write,  write_disc, {0,0}}
+,{set,    split, timestamp,   write,  write_disc, {0,0}}
+,{set,    split, term,        write,  write_disc, {0,0}}
+,{set,    split, id,          delete, delete_disc, {0,0}}
+,{set,    split, timestamp,   delete, delete_disc, {0,0}}
+,{set,    split, term,        delete, delete_disc, {0,0}}
+
+ % write in RAM 2 x 1->10 (same key, different value), delete 1 -> 10
+,{bag,    split, id,          write,  write_ram, {0,0}}
+,{bag,    split, timestamp,   write,  write_ram, {0,0}}
+,{bag,    split, term,        write,  write_ram, {0,0}}
+,{bag,    split, id,          delete, delete_ram, {0,0}}
+,{bag,    split, timestamp,   delete, delete_ram, {0,0}}
+,{bag,    split, term,        delete, delete_ram, {0,0}}
+
+ % write in DISC 2 x 1->10 (same key, different value), delete 5 -> 10
+,{bag,    split, id,          write,  write_disc, {0,0}}
+,{bag,    split, timestamp,   write,  write_disc, {0,0}}
+,{bag,    split, term,        write,  write_disc, {0,0}}
+,{bag,    split, id,          delete, delete_disc, {0,0}}
+,{bag,    split, timestamp,   delete, delete_disc, {0,0}}
+,{bag,    split, term,        delete, delete_disc, {0,0}}
+
+ % write  in RAM shuffled 1->20 by increment of 1, delete 1->10 shuffled by increment of 1
+,{ord_set,split, id,          write,  write_ram, {0,0}}
+,{ord_set,split, timestamp,   write,  write_ram, {0,0}}
+,{ord_set,split, term,        write,  write_ram, {0,0}}
+,{ord_set,split, id,          delete, delete_ram, {0,0}}
+,{ord_set,split, timestamp,   delete, delete_ram, {0,0}}
+,{ord_set,split, term,        delete, delete_ram, {0,0}}
+
+ % write in DISC shuffled 1->20 by increment of 1, delete 5->15 shuffled by increment of 1
+,{ord_set,split, id,          write,  write_disc, {0,0}}
+,{ord_set,split, timestamp,   write,  write_disc, {0,0}}
+,{ord_set,split, term,        write,  write_disc, {0,0}}
+,{ord_set,split, id,          delete, delete_disc, {0,0}}
+,{ord_set,split, timestamp,   delete, delete_disc, {0,0}}
+,{ord_set,split, term,        delete, delete_disc, {0,0}}].
+
+
+
+
